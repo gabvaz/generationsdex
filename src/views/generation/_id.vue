@@ -5,7 +5,7 @@
       <h2>{{ title }}</h2>
     </div>
     <div class="versions">
-      <h6 class="versions-title">Versions</h6>
+      <h6 class="versions-title">Games Versions</h6>
       <div>
         <span v-for="(version, index) in versions" :key="index" class="version">
           {{ formatName(version.name) }}
@@ -67,8 +67,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     gap: 15px;
-    border: 2px solid $red-1;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 0.5rem;
     > h6 {
       font-family: $title-1;
@@ -84,8 +83,8 @@ export default {
   }
   .version {
     text-transform: capitalize;
-    background: $red-1;
-    color: white;
+    background: $red-2;
+    color: black;
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
   }
