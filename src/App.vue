@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <router-view />
+    <div id="heading">
+      <img
+        @click="$router.push('/')"
+        src="@/assets/images/generations-dex.png"
+      />
+    </div>
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -19,18 +27,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  padding: 30px 0;
+  min-height: 100vh;
+  background: $bg-light;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+#heading {
+  padding: 30px 0 60px;
+  img {
+    cursor: pointer;
   }
+}
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 </style>
