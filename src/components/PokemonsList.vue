@@ -11,6 +11,7 @@
         :key="index"
         class="pokemon_card"
         :style="{ backgroundColor: backgrounds[pokemon.types[0].type.name] }"
+        @click="handleClick(pokemon)"
       >
         <span>#{{ formatId(pokemon.id) }}</span>
         <h4>
@@ -37,16 +38,30 @@
     <button v-if="page + 1 < pages" class="load_more" @click="loadMore()">
       Load more
     </button>
+    <Modal
+      :isModalOpen="modal"
+      :pokemon="selectedPokemon"
+      :background="SelectedBackground"
+      @closeModal="handleModal()"
+    />
   </div>
 </template>
 
 <script>
 import { mapActions, mapMutations, mapState, mapGetters } from "vuex";
 import { debounce } from "lodash";
+import Modal from "@/components/Modal.vue";
+
 export default {
   name: "PokemonsList",
+  components: {
+    Modal,
+  },
   data() {
     return {
+      modal: false,
+      selectedPokemon: {},
+      SelectedBackground: "",
       backgrounds: {
         bug: "#8bd674",
         dark: "#6f6e78",
@@ -121,6 +136,14 @@ export default {
     formatId(id) {
       return id.toString().padStart(3, "0");
     },
+    handleClick(pokemon) {
+      this.handleModal();
+      this.selectedPokemon = pokemon;
+      this.SelectedBackground = this.backgrounds[pokemon.types[0].type.name];
+    },
+    handleModal() {
+      this.modal = !this.modal;
+    },
   },
 };
 </script>
@@ -172,6 +195,7 @@ export default {
     padding: 1.25rem;
     position: relative;
     z-index: 2;
+    cursor: pointer;
     &::after {
       content: "";
       background: url("~@/assets/images/pokeballs.jpg");
