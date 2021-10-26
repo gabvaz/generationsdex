@@ -20,4 +20,20 @@ export default {
       responseType: "json",
     });
   },
+  getVersionGroupDetails(id) {
+    return instance({
+      method: "GET",
+      baseURL,
+      url: `version-group/${id}`,
+      responseType: "json",
+    });
+  },
+  getPokemon(id) {
+    return instance({
+      method: "GET",
+      baseURL,
+      url: `pokemon/${id}`,
+      responseType: "json",
+    });
+  },
 };

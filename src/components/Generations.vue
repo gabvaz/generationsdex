@@ -4,6 +4,7 @@
       v-for="(generation, index) in generations"
       class="generation-card"
       :key="index"
+      @click="$router.push(`/generation/${generation.id}`)"
     >
       <p class="card-title">{{ filterName(generation.names) }}</p>
       <div class="read-more"><img src="@/assets/images/read-more.png" /></div>
@@ -48,6 +49,7 @@ export default {
     cursor: pointer;
     &::after {
       content: "";
+      background: url("https://thumbs.dreamstime.com/b/valencia-spain-may-pokemon-trading-card-game-fondness-collectibles-children-all-ages-fans-pokemon-rpgs-168202028.jpg");
       background: url("https://mpng.subpng.com/20181124/ji/kisspng-pattern-crochet-photograph-image-information-5bf9bde5990c77.6927166415430937336269.jpg");
       opacity: 0.1;
       position: absolute;
