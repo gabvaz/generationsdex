@@ -18,6 +18,9 @@ const getters = {
   orderedPokemons: (state) => {
     return state.pokemons.slice().sort((a, b) => a.id - b.id);
   },
+  orderedGenerations: (state) => {
+    return state.generations.slice().sort((a, b) => a.id - b.id);
+  },
 };
 
 // actions

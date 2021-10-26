@@ -129,18 +129,26 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 1rem;
+  }
   input {
     height: 2rem;
     border-radius: 0.5rem;
     border: 1px solid #dbdbdb;
     outline: none;
     padding: 0 1rem;
+    @media (max-width: 767px) {
+      margin-bottom: 1rem;
+    }
   }
   h2 {
     text-align: left;
   }
   span {
     text-align: right;
+    font-weight: bold;
   }
 }
 .pokemons_list {
@@ -149,6 +157,12 @@ export default {
   grid-gap: 2rem;
   max-width: 64rem;
   margin: 0 auto 2rem;
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
   .pokemon_card {
     border-radius: 0.5rem;
     display: flex;
@@ -160,7 +174,7 @@ export default {
     z-index: 2;
     &::after {
       content: "";
-      background: url("https://mpng.subpng.com/20181124/ji/kisspng-pattern-crochet-photograph-image-information-5bf9bde5990c77.6927166415430937336269.jpg");
+      background: url("~@/assets/images/pokeballs.jpg");
       opacity: 0.1;
       position: absolute;
       width: 100%;

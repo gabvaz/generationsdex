@@ -32,9 +32,11 @@ body {
   background: $bg-light;
 }
 #heading {
-  padding: 30px 0 60px;
+  padding: 30px 0 0px;
   img {
     cursor: pointer;
+    max-width: 90%;
+    margin: 0 15px;
   }
 }
 .container {

@@ -13,13 +13,14 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Generations",
-  props: {
-    generations: {
-      type: Array,
-      default: () => [],
-    },
+  computed: {
+    ...mapGetters("games", {
+      generations: "orderedGenerations",
+    }),
   },
   methods: {
     filterName(names) {
@@ -39,6 +40,12 @@ export default {
   grid-gap: 1.5rem;
   max-width: 64rem;
   margin: 0 auto;
+  @media (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
   > .generation-card {
     background: white;
     border-radius: 0.3rem;
@@ -49,8 +56,7 @@ export default {
     cursor: pointer;
     &::after {
       content: "";
-      background: url("https://thumbs.dreamstime.com/b/valencia-spain-may-pokemon-trading-card-game-fondness-collectibles-children-all-ages-fans-pokemon-rpgs-168202028.jpg");
-      background: url("https://mpng.subpng.com/20181124/ji/kisspng-pattern-crochet-photograph-image-information-5bf9bde5990c77.6927166415430937336269.jpg");
+      background: url("~@/assets/images/pokeballs.jpg");
       opacity: 0.1;
       position: absolute;
       width: 100%;
